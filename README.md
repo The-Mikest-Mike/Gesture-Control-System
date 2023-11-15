@@ -18,6 +18,9 @@ The primary goal of this project is to reduce fatigue associated with prolonged 
 ## Features
 
 - Close, Minimize and maximize windows.
+
+## Upcomming
+
 - Split windows (Tile window to the left and Tile window to the right).
 - Change between applications.
 - Change between tabs.
