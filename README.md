@@ -25,6 +25,14 @@ The primary goal of this project is to reduce fatigue associated with prolonged 
 - Change between tabs.
 - Select items.
 
+## How to Use
+
+1. Clone the repository.
+2. Install dependencies: `pip install -r requirements.txt`.
+3. Run the application: `python app.py`.
+
+- - -
+
 ## Development Timeline
 
 The project will follow an Agile methodology, utilizing a Model-View-Controller (MVC) architectural pattern and Test-Driven Development (TDD) practices. Development phases include:
@@ -60,11 +68,6 @@ The project will follow an Agile methodology, utilizing a Model-View-Controller 
 10. **Deployment and Distribution**
     - Prepare the application for distribution.
 
-## How to Use
-
-1. Clone the repository.
-2. Install dependencies: `pip install -r requirements.txt`.
-3. Run the application: `python app.py`.
 
 
 
