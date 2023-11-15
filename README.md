@@ -16,11 +16,10 @@ The primary goal of this project is to reduce fatigue associated with prolonged 
 - Potential for a groundbreaking invention.
 
 ## Features
-
-- Close, Minimize and maximize windows.
+- Close most-front-window with close hand gesture (macOS)
 
 ## Upcomming
-
+- Minimize and maximize windows.
 - Split windows (Tile window to the left and Tile window to the right).
 - Change between applications.
 - Change between tabs.
