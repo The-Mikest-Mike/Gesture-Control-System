@@ -22,3 +22,10 @@ while True:
     image = cv2.flip(image, 1)
     print("Processing new frame. . .") # Debugging Line only. 
     gesture_controller.process_gestures(image)
+    cv2.imshow("Hand gesture control",image)
+
+    key = cv2.waitKey(10)
+    print(" 'Escape' key pressed:", key)
+    if key == 27:
+        break
+

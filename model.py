@@ -30,9 +30,14 @@ class HandDetector:
 
     def detect_close_gesture(self, hand):
         print("Detecting close gesture. . .") # Debugging Line Only. Notify when this function is called
-        # Implementation for detecting a close gesture
-        # Analyze hand landmarks to determine if the hand is in a specific gesture (e.g., a closed fist)
-        # Return a boolean indicating whether the gesture is detected
+        # Implementation for detecting if the pinky finger is in contact with the thumb (close gesture)
+        # Return a boolean indicating whether the minimize gesture is detected
+        pass
+
+    def detect_minimize_gesture(self, hand):
+        print("Detecting minimize gesture. . .") # Debugging Line Only. Notify when this function is called
+        # Implemention logic to detect if the ring finger is in contact with the thumb (minimize gesture)
+        # Return a boolean indicating whether the minimize gesture is detected
         pass
 
 class WindowManager:
@@ -43,8 +48,16 @@ class WindowManager:
     def close_frontmost_window(self):
         # Implement window closing logic for macOS using pyautogui (I can use a specific library or system command)
         try:
-            pyautogui.hotkey('command', 'w') # Simulate Command + W to close the frontmost window.
+            pyautogui.hotkey('command', 'w') # Simulate Command + w to close the frontmost window.
         except Exception as e:
             print(f"Error Closing Window: {e}")
+
+    def minimize_frontmost_window(self):
+        # Implement window minimizing logic for macOS (you may need to find the appropriate API for this)
+        try:
+            pyautogui.hotkey('command', 'm') # Simulate Command + m to minimize the frontmost window.
+        except Exception as e:
+            print(f"Exception Minimizing Window: {e}")
+        pass
 
 
