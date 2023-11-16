@@ -15,11 +15,12 @@ The primary goal of this project is to reduce fatigue associated with prolonged 
 - Increased productivity with intuitive gestures.
 - Potential for a groundbreaking invention.
 
-## Features
-- Close most-front-window with close hand gesture (macOS)
+## Features (macOS)
+- Close Window 
+- Minimize window
+- Enter Full Screen 
 
 ## Upcomming
-- Minimize and maximize windows.
 - Split windows (Tile window to the left and Tile window to the right).
 - Change between applications.
 - Change between tabs.
@@ -29,7 +30,7 @@ The primary goal of this project is to reduce fatigue associated with prolonged 
 
 1. Clone the repository.
 2. Install dependencies: `pip install -r requirements.txt`.
-3. Run the application: `python app.py`.
+3. Run the application: `gesture_app.py`.
 
 - - -
 

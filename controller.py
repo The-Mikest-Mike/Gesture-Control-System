@@ -27,6 +27,10 @@ class GestureController:
                 thumb_tip = hand.landmark[4]  # Thumb tip landmark
                 ring_tip = hand.landmark[16]  # Pinky tip landmark
 
+                # Detecting a "full screen window" gesture based on the proximity of thumb tip and middle tip landmarks
+                thumb_tip = hand.landmark[4]  # Thumb tip landmark
+                middle_tip = hand.landmark[12]  # Pinky tip landmark
+
                 # Calculate the distance between thumb and pinky tips
                 distance_thumb_pinky = ((pinky_tip.x - thumb_tip.x) ** 2 + (pinky_tip.y - thumb_tip.y) ** 2) ** 0.5
                 print("Distance between thumb and pinky:", distance_thumb_pinky)  # Debugging Line only. Informs when this function is called and the distance value.
@@ -35,25 +39,42 @@ class GestureController:
                 distance_thumb_ring = ((ring_tip.x - thumb_tip.x) ** 2 + (ring_tip.y - thumb_tip.y) ** 2) ** 0.5
                 print("Distance between thumb and pinky:", distance_thumb_ring)  # Debugging Line only. Informs when this function is called and the distance value.
 
-                # Check for close gesture (thumb touching pinky finger)
+                # Calculate the distance between thumb and middle tips
+                distance_thumb_middle = ((middle_tip.x - thumb_tip.x) ** 2 + (middle_tip.y - thumb_tip.y) ** 2) ** 0.5
+                print("Distance between thumb and pinky:", distance_thumb_ring)  # Debugging Line only. Informs when this function is called and the distance value.
+
+                # Check for close gesture (thumb touching pinky fingertip)
                 if distance_thumb_pinky < 0.05:  # If distance below threshold, consider it "close window" gesture
-                    print("Closed full hand gesture detected. Closing Window...")
+                    print("Close Window gesture detected. Closing Window...")
                     self.window_manager.close_frontmost_window()
                     break
 
+                # Calling "detect_close_gesture" function
                 if self.hand_detector.detect_close_gesture(hand):
-                    print("Closed full hand gesture detected. Closing Window...")
+                    print("Close Window gesture detected. Closing Window...")
                     self.window_manager.close_frontmost_window()
                     break
 
-                 # Check for close gesture (thumb touching ring finger)
+                 # Check for minimize gesture (thumb touching ring fingertip)
                 if distance_thumb_ring < 0.05:  # If distance below threshold, consider it "minimize window" gesture
-                    print("Closed full hand gesture detected. Closing Window...")
+                    print("Minimize Window gesture detected. Minimizing Window...")
                     self.window_manager.minimize_frontmost_window()
                     break
-
-                  # Check for minimize gesture
+                # Calling "detect_minimize_gesture" function
                 if self.hand_detector.detect_minimize_gesture(hand):
-                    print("Minimize gesture detected. Minimizing Window...")
+                    print("Minimize Window gesture detected. Minimizing Window...")
                     # Implement the action to minimize the window (you may need to find the appropriate API for this)
                     break
+
+                 # Check for full screen gesture (thumb touching middle fingertip)
+                if distance_thumb_middle < 0.05:  # If distance below threshold, consider it "full screen" gesture
+                    print("Full Screen gesture detected. Entering Full Screen Window...")
+                    self.window_manager.full_screen_frontmost_window()
+                    break
+
+                # Calling "detect_full_screen_gesture" function
+                if self.hand_detector.detect_full_screen_gesture(hand):
+                    print("Full Screen gesture detected. Entering Full Screen Window...")
+                    self.window_manager.full_screen_frontmost_window()
+                    break
+

@@ -17,7 +17,7 @@ class HandDetector:
 
     def detect_hands(self, image):
         print("Detecting hands. . .") # Debugging Line Only. Notify when this function is called
-        # Use computer vision CV and the Mediapipe library to detect hands in the provided image.
+        # Use computer vision CV2 and the Mediapipe library to detect hands in the provided image.
         # Convert the image from BRG to RGB
         rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         # Process the image using mediapipe hands
@@ -40,6 +40,12 @@ class HandDetector:
         # Return a boolean indicating whether the minimize gesture is detected
         pass
 
+    def detect_full_screen_gesture(self, hand):
+        print("Detecting full screen gesture. . .") # Debugging Line Only. Notify when this function is called
+        # Implemention logic to detect if the ring finger is in contact with the thumb (minimize gesture)
+        # Return a boolean indicating whether the minimize gesture is detected
+        pass
+
 class WindowManager:
     def __init__(self):
         # Initialize any necessary attributes
@@ -48,16 +54,23 @@ class WindowManager:
     def close_frontmost_window(self):
         # Implement window closing logic for macOS using pyautogui (I can use a specific library or system command)
         try:
-            pyautogui.hotkey('command', 'w') # Simulate Command + w to close the frontmost window.
+            pyautogui.hotkey('command', 'w') # Simulate 'Command + w' to close the frontmost window.
         except Exception as e:
             print(f"Error Closing Window: {e}")
 
     def minimize_frontmost_window(self):
         # Implement window minimizing logic for macOS (you may need to find the appropriate API for this)
         try:
-            pyautogui.hotkey('command', 'm') # Simulate Command + m to minimize the frontmost window.
+            pyautogui.hotkey('command', 'm') # Simulate 'Command + m' to minimize the frontmost window.
         except Exception as e:
             print(f"Exception Minimizing Window: {e}")
+
+    def full_screen_frontmost_window(self):
+        # Implement window minimizing logic for macOS (you may need to find the appropriate API for this)
+        try:
+            pyautogui.hotkey('fn', 'f') # Simulate 'fn + f' to enter full screen with the frontmost window.
+        except Exception as e:
+            print(f"Exception Full Screen Window: {e}")
         pass
 
 
