@@ -2,9 +2,3 @@ opencv-python==4.5.3
 mediapipe==0.8.6
 pyautogui==0.9.53
 pygetwindow
-# For smoother font cache building in Matplotlib, you may run:
-# pip install --upgrade matplotlib
-# Decide when it's appropriate to upgrade based on your needs and preferences
-
-
-
