@@ -19,7 +19,7 @@ Intuitive Hand Gestures for performing below actions:
     - Select items (under development)
 
 ## How to Use
-1. Clone the repository and run the following command to install mediapipe: `python3 -m pip install mediapipe`
+1. Clone the repository and run the following command to install mediapipe: `pip3 install mediapipe`
 2. Install requirements.txt file with command: `pip3 install -r requirements.txt`
 3. Run `gesture_app.py` file with command `python3 gesture_app.py`
 
