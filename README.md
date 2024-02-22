@@ -19,8 +19,9 @@ Intuitive Hand Gestures for performing below actions:
     - Select items (under development)
 
 ## How to Use
-1. Clone the repository and run the following command to install mediapipe: `pip3 install mediapipe`
-2. Install requirements.txt file with command: `pip3 install -r requirements.txt`
-3. Run `gesture_app.py` file with command `python3 gesture_app.py`
+1. Ensure you have the compatible python version 3.8 - 3.11 to setup mediapipe. You can download python 3.11.0 from official website: `https://www.python.org/downloads/release/python-3110/` and PIP: version 20.3+, upgrade if needed using: `python3 -m pip install --upgrade pip`
+2. Clone the repository and run the following command to install mediapipe: `python3 -m pip install mediapipe`
+3. Install requirements.txt file with command: `pip3 install -r requirements.txt`
+4. Run `gesture_app.py` file with command `python3 gesture_app.py`
 
 
