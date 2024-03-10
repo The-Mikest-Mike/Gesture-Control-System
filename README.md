@@ -40,6 +40,6 @@ Intuitive Hand Gestures for performing below actions:
 - Potentially prevents musculoskeletal issues.
 - Worldwide impact on ergonomic computer interaction.
 - Increased productivity, saving about.
-- Potential for a groundbreaking invention.
+- Potential for a groundbreaking development and adoption.
 
 
