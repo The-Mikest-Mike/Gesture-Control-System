@@ -6,7 +6,7 @@
 
    b) PIP version: 20.3+, upgrade it if needed:
 ```bash
-  python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade pip
 ```
 2. Clone repository and install requirements.txt file:
 ```bash
