@@ -38,8 +38,8 @@ Intuitive Hand Gestures for performing below actions:
 ## Key Benefits
 - Fatigue reduction associated with prolonged mouse or touchpad usage.
 - Potentially prevents musculoskeletal issues.
+- Increased productivity, saving about 5 days per year.
 - Worldwide impact on ergonomic computer interaction.
-- Increased productivity, saving about.
 - Potential for a groundbreaking development and adoption.
 
 
