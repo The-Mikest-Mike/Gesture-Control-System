@@ -30,10 +30,7 @@ Intuitive Hand Gestures for performing below actions:
 - Close Window.
 - Minimize window.
 - Enter Full Screen.
-- Tile Window to left and right. (under development)
-- Change between applications. (under development)
-- Change between tabs. (under development)
-- Select items. (under development)
+
 
 ## Key Benefits
 - Fatigue reduction associated with prolonged mouse or touchpad usage.
