@@ -21,7 +21,7 @@ python3 -m pip install mediapipe
 ```
 4. Run gesture_app.py file:
 ```bash
-python3 gesture_app.py
+python3 app.py
 ```
 
 
