@@ -39,4 +39,17 @@ Intuitive Hand Gestures for performing below actions:
 - Worldwide impact on ergonomic computer interaction.
 - Potential for a groundbreaking development and adoption.
 
+ ## Project Directory Structure
+ ```
+ MAC-CONTROL-GESTURES/
+│
+├── app.py                                             # Main application file
+├── controller.py                                      # Handles the control logic
+├── gesture_checks.py                                  # Checks for gesture inputs
+├── model.py                                           # Defines the data models
+├── README.md                                          # Project documentation
+├── requirements.txt                                   # Required Python packages
+└── view.py                                            # Manages the view layer
+```
+
 
