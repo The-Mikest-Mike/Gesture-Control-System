@@ -1,4 +1,4 @@
-# Manages the display and user interface, interacting with the controller to reflect changes based on gestures.
+# This module manages the display and user interface, interacting with the controller to reflect changes based on gestures
 
 import cv2
 from controller import GestureController
@@ -11,11 +11,10 @@ gesture_controller = GestureController(hand_detector, window_manager)  # Control
 
 class GestureView:
     def __init__(self, gesture_controller):
-        self.gesture_controller = gesture_controller
+        self.gesture_controller = gesture_controller # GestureController instance
 
     def display(self, image):
-        print("Displaying image...") #  Debugging Line only. Notify when this function is called
-        # Implement the display logic, e.g., Showing the image with OpenCV
+        print("Displaying image...") # Debug: log display function being called
         cv2.imshow("Hand gesture control", image)
         cv2.waitKey(10)  
 
@@ -38,7 +37,7 @@ def main():
         cv2.imshow("Hand gesture control", image)  # Display the image with the hand gesture information
 
         key = cv2.waitKey(10)  # Wait for a key press for 10 milliseconds
-        print(" 'Escape' key pressed:", key) # Debugging Line only. Notify whether 'escape' key is pressed
+        print(" 'Escape' key pressed:", key) # Debug: log when 'escape' key is pressed
         if key == 27:  # Check if the pressed key is the 'Escape' key (27)
             break
 

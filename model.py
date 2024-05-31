@@ -1,76 +1,67 @@
-# Houses the HandDetector class, handling hand detection and gesture recognition.
+# This module defines the HandDetector class for detecting hands and gestures logic
+
 import cv2
 import pyautogui
 import mediapipe as mp
 
-# Handle hand detection and gesture recognition
 class HandDetector:
     def __init__(self):
-        # Initialize the mediapipe hands module
-        self.hands = mp.solutions.hands.Hands()
-        self.drawing_utils = mp.solutions.drawing_utils
-        # creating 4 variables initializing them with 0.
+        self.hands = mp.solutions.hands.Hands() # Initialize the mediapipe hands module
+        self.drawing_utils = mp.solutions.drawing_utils # Utility for drawing hand landmarks
+        # Initialize coordinates for gesture detection
         self.x1 = 0
         self.y1 = 0
         self.x2 = 0
         self.y2 = 0
 
     def detect_hands(self, image):
-        print("Detecting hands. . .") # Debugging Line Only. Notify when this function is called
-        # Use computer vision CV2 and the Mediapipe library to detect hands in the provided image.
-        # Convert the image from BRG to RGB
-        rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        # Process the image using mediapipe hands
-        output = self.hands.process(rgb_image)
-        # Get the detected hands
-        hands = output.multi_hand_landmarks
+        print("Detecting hands. . .") # Debug: log hand detectiion fuction being called
+        rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # Convert the image from BRG to RGB
+        output = self.hands.process(rgb_image) # Process the image using mediapipe hands module
+        hands = output.multi_hand_landmarks  # Get the detected hands
         # Ensure that 'detect_hands' returns a list instead of 'None' to avoid " 'NoneType' object is not iterable" error
         return hands if hands is not None else []
 
 
     def detect_close_gesture(self, hand):
-        print("Detecting close gesture. . .") # Debugging Line Only. Notify when this function is called
-        # Implementation for detecting if the pinky finger is in contact with the thumb (close gesture)
-        # Return a boolean indicating whether the minimize gesture is detected
+        print("Detecting close gesture. . .") # Debug: log close gesture method being called
+        # Implementation for detecting if pinky finger is in contact with the thumb (close gesture)
         pass
 
     def detect_minimize_gesture(self, hand):
-        print("Detecting minimize gesture. . .") # Debugging Line Only. Notify when this function is called
-        # Implemention logic to detect if the ring finger is in contact with the thumb (minimize gesture)
-        # Return a boolean indicating whether the minimize gesture is detected
+        print("Detecting minimize gesture. . .") # Debug: log minimize gesture method being called
+        # Implemention for detecting if ring finger is in contact with the thumb (minimize gesture)
         pass
 
     def detect_full_screen_gesture(self, hand):
-        print("Detecting full screen gesture. . .") # Debugging Line Only. Notify when this function is called
-        # Implemention logic to detect if the ring finger is in contact with the thumb (minimize gesture)
-        # Return a boolean indicating whether the minimize gesture is detected
+        print("Detecting full screen gesture. . .")# Debug: log enter full screen gesture function being called
+        # Implemention for detecting if the ring finger is in contact with the thumb (minimize gesture)
         pass
 
 class WindowManager:
-    def __init__(self):
-        # Initialize any necessary attributes
-        pass
+    def __init__(self): # Initialize any necessary attributes
+        pass 
 
     def close_frontmost_window(self):
-        # Implement window closing logic for macOS using pyautogui (I can use a specific library or system command)
+        # Window closing logic using pyautogui
         try:
-            pyautogui.hotkey('command', 'w') # Simulate 'Command + w' to close the frontmost window.
+            pyautogui.hotkey('command', 'w') # Simulate 'Command + w' to close the frontmost window
         except Exception as e:
-            print(f"Error Closing Window: {e}")
+            print(f"Error Closing Window: {e}") # Debug: log exception while closing window
 
     def minimize_frontmost_window(self):
-        # Implement window minimizing logic for macOS (you may need to find the appropriate API for this)
+        # Window minimizing logic
         try:
-            pyautogui.hotkey('command', 'm') # Simulate 'Command + m' to minimize the frontmost window.
+            pyautogui.hotkey('command', 'm') # Simulate 'Command + m' to minimize the frontmost window
         except Exception as e:
-            print(f"Exception Minimizing Window: {e}")
+            print(f"Exception Minimizing Window: {e}") # Debug: log exception while minimizing window
 
     def full_screen_frontmost_window(self):
-        # Implement window minimizing logic for macOS (you may need to find the appropriate API for this)
+        # Enter full screen logic
         try:
-            pyautogui.hotkey('fn', 'f') # Simulate 'fn + f' to enter full screen with the frontmost window.
+            pyautogui.hotkey('fn', 'f') # Simulate 'fn + f' to enter full screen with the frontmost window
         except Exception as e:
-            print(f"Exception Full Screen Window: {e}")
+            print(f"Exception Full Screen Window: {e}") # Debug: log exception while entering full screen
         pass
 
 
