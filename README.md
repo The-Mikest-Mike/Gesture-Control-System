@@ -41,6 +41,9 @@ Uses hand gesture recognition to control various window management actions on a 
  ## Project Directory Structure
  ```
  MAC-CONTROL-GESTURES/
+│── app.py                                              # Entry point of the application
+│── README.md                                           # Project documentation
+│── requirements.txt                                    # Required Python packages  
 │
 │── controller/                                         # Controller folder
 │   │── __init__.py                                     # Recognize the directory as a package
@@ -55,9 +58,6 @@ Uses hand gesture recognition to control various window management actions on a 
 │── view/                                               # View folder                                           
 │   │── __init__.py                                      # Recognize the directory as a package
 │   └── main_view.py                                     # Handles displaying video feed with landmarks
-│── README.md                                           # Project documentation
-│── requirements.txt                                    # Required Python packages
-│── app.py                                              # Entry point of the application  
 ```
 
 ## License
