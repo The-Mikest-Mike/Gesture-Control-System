@@ -1,8 +1,10 @@
-# This module defines the GestureController class, which processes hand gestures detected by the HandDetector
+# Acts as an intermediary between the model and the view. It listens to the input from the view, 
+# processes it (using the model if necessary) and updates the view accordingly
+# Have methods that are called by the view to perform actions and update the model
+# Components: GestureController
 
-import pyautogui
 import mediapipe as mp
-from gesture_checks import additional_landmark_checks
+from utils.gesture_checks import additional_landmark_checks
 
 class GestureController:
     def __init__(self, hand_detector, window_manager):
@@ -22,7 +24,6 @@ class GestureController:
                     print("Thumb is below all other fingertips. Performing associated action...") # Debug: log valid condition
 
                     # Collect landmarks from the hand
-                    landmarks = hand.landmark
                     thumb_tip = hand.landmark[4]  # Thumb tip landmark
                     pinky_tip = hand.landmark[20]  # Pinky tip landmark
                     ring_tip = hand.landmark[16]  # Ring tip landmark

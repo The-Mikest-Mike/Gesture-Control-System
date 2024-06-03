@@ -1,4 +1,4 @@
-# This module defines a fuction to perform additional landmark checks for hand gesture detection
+# This module contains helper fuctions for additional landmark checks for hand gesture detection
 
 def additional_landmark_checks(hand):
     """
