@@ -41,23 +41,27 @@ Uses hand gesture recognition to control various window management actions on a 
  ## Project Directory Structure
  ```
  MAC-CONTROL-GESTURES/
+│
 │── app.py                                              # Entry point of the application
 │── README.md                                           # Project documentation
 │── requirements.txt                                    # Required Python packages  
 │
 │── controller/                                         # Controller folder
-│   │── __init__.py                                     # Recognize the directory as a package
-│   └── gesture_controller.py                           # Process gestures and coordinate between model and view
+│    │── __init__.py                                    # Recognize the directory as a package
+│    └── gesture_controller.py                          # Process gestures and coordinate between model and view
+│
 │── utils/                                              # Utils folder                            
-│   │── __init__.py                                      # Recognize the directory as a package
-│   └── gesture_checks.py                                # Additional checks for gesture inputs
+│    │── __init__.py                                    # Recognize the directory as a package
+│    └── gesture_checks.py                              # Additional checks for gesture inputs
+│
 │── model/                                              # Model folder
-│   │── __init__.py                                      # Recognize the directory as a package
-│   │── hand_detector.py                                 # Defines hand detection data models
-│   └── window_manager.py                                # Defines window manager data models
+│    │── __init__.py                                    # Recognize the directory as a package
+│    │── hand_detector.py                               # Defines hand detection data models
+│    └── window_manager.py                              # Defines window manager data models
+│
 └── view/                                               # View folder                                           
-    │── __init__.py                                      # Recognize the directory as a package
-    └── main_view.py                                     # Handles displaying video feed with landmarks
+     │── __init__.py                                    # Recognize the directory as a package
+     └── main_view.py                                   # Handles displaying video feed with landmarks
 ```
 
 ## License
