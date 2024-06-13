@@ -9,19 +9,18 @@ class HandDetector:
         self.hands = mp.solutions.hands.Hands() # Initialize the mediapipe hands module
         self.drawing_utils = mp.solutions.drawing_utils # Utility for drawing hand landmarks
         self.x1, self.y1, self.x2, self.y2 = 0, 0, 0, 0 # Initialize coordinates for gesture detection
+    
+    def detect_single_hand(self, image):
+        print("Detecting hands...")  # Debug: log hand detection function being called
+        rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)  # Convert the image from BGR to RGB
+        output = self.hands.process(rgb_image)  # Process the image using mediapipe hands module
+        hand_landmarks = output.multi_hand_landmarks  # Get the detected hands
 
-    def detect_hands(self, image):
-        print("Detecting hands. . .") # Debug: log hand detectiion fuction being called
-        rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # Convert the image from BRG to RGB
-        output = self.hands.process(rgb_image) # Process the image using mediapipe hands module
-        hands = output.multi_hand_landmarks  # Get the detected hands
-       
-        # Ensure that 'detect_hands' returns a list instead of 'None' to avoid " 'NoneType' object is not iterable" error
-        if hands:
-            return[hands[0]] # Return only the first detected hand
+        # Ensure that 'detect_single_hand' returns a single hand landmark instead of a list
+        if hand_landmarks:
+            return hand_landmarks[0]  # Return only the first detected hand
         else:
-            return []
-
+            return None  # Return None if no hands are detected
 
     def detect_close_gesture(self, hand):
         print("Detecting close gesture. . .") # Debug: log close gesture method being called
