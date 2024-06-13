@@ -18,6 +18,7 @@ class GestureController:
         hands = self.hand_detector.detect_hands(image) # Detect hands in the provided image        
 
         if hands:
+            hand = hands[0] # Only process the first detected hand
             for hand in hands:
                 self.drawing_utils.draw_landmarks(image, hand)  # Draw landmarks on detected hands 'image' by using the 'drawing_utils' object
                 

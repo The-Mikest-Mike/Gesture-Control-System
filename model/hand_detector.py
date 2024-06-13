@@ -15,8 +15,12 @@ class HandDetector:
         rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # Convert the image from BRG to RGB
         output = self.hands.process(rgb_image) # Process the image using mediapipe hands module
         hands = output.multi_hand_landmarks  # Get the detected hands
+       
         # Ensure that 'detect_hands' returns a list instead of 'None' to avoid " 'NoneType' object is not iterable" error
-        return hands if hands is not None else []
+        if hands:
+            return[hands[0]] # Return only the first detected hand
+        else:
+            return []
 
 
     def detect_close_gesture(self, hand):
