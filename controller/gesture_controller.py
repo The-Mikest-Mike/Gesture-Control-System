@@ -26,43 +26,54 @@ class GestureController:
                 if additional_landmark_checks(hand_landmark):  # Check if thumb is positioned below all other fingertips
                     print("Thumb is below all other fingertips. Valid Hand Position")  # Debug: log whether thumb below other fingers
 
-                    # Collect landmarks from the hand
-                    thumb_tip = hand_landmark.landmark[4]  # Thumb tip landmark
-                    pinky_tip = hand_landmark.landmark[20]  # Pinky tip landmark
-                    ring_tip = hand_landmark.landmark[16]  # Ring tip landmark
-                    middle_tip = hand_landmark.landmark[12]  # Middle tip landmark
-
-                    # Calculate the distance between thumb and pinky tips
-                    distance_thumb_pinky = ((pinky_tip.x - thumb_tip.x) ** 2 + (pinky_tip.y - thumb_tip.y) ** 2) ** 0.5
-                    print("Distance between thumb and pinky:", distance_thumb_pinky)  # Debug: log distance between thumb and pinky
-
-                    # Calculate the distance between thumb and ring tips
-                    distance_thumb_ring = ((ring_tip.x - thumb_tip.x) ** 2 + (ring_tip.y - thumb_tip.y) ** 2) ** 0.5
-                    print("Distance between thumb and ring:", distance_thumb_ring)  # Debug: log distance between thumb and ring
-
-                    # Calculate the distance between thumb and middle tips
-                    distance_thumb_middle = ((middle_tip.x - thumb_tip.x) ** 2 + (middle_tip.y - thumb_tip.y) ** 2) ** 0.5
-                    print("Distance between thumb and middle:", distance_thumb_middle)  # Debug: log distance between thumb and middle
-
-                    # Check for specific gestures and perform actions
-                    # Close window gesture (thumb touching pinky fingertip)
-                    if distance_thumb_pinky < 0.05:  # If distance below threshold, consider it "close window" gesture
-                        print("Close Window gesture detected. Closing Window...")  # Debug: log valid threshold for close window gesture
+                    if self.detect_close_gesture(hand_landmark):
+                        print("Close Window gesture detected. Closing Window...")  # Debug: log close window gesture
                         self.window_manager.close_frontmost_window()
                         return
 
-                    # Minimize window gesture (thumb touching ring fingertip)
-                    if distance_thumb_ring < 0.05:  # If distance below threshold, consider it "minimize window" gesture
-                        print("Minimize Window gesture detected. Minimizing Window...")  # Debug: log valid threshold for minimize window gesture
+                    if self.detect_minimize_gesture(hand_landmark):
+                        print("Minimize Window gesture detected. Minimizing Window...")  # Debug: log minimize window gesture
                         self.window_manager.minimize_frontmost_window()
                         return
 
-                    # Full screen gesture (thumb touching middle fingertip)
-                    if distance_thumb_middle < 0.05:  # If distance below threshold, consider it "full screen" gesture
-                        print("Full Screen gesture detected. Entering Full Screen Window...")  # Debug: log valid threshold for enter full screen gesture
+                    if self.detect_full_screen_gesture(hand_landmark):
+                        print("Full Screen gesture detected. Entering Full Screen Window...")  # Debug: log enter full screen gesture
                         self.window_manager.full_screen_frontmost_window()
                         return
 
                     print("No valid gesture detected")  # Debug: log no valid gesture after above threshold conditions
                 else:
                     print("Thumb is not below all other fingertips. Ignoring gestures")  # Debug: log invalid hand position
+
+    def detect_close_gesture(self, hand):
+        thumb_tip = hand.landmark[4]
+        pinky_tip = hand.landmark[20]
+
+        # Calculate the distance between thumb and pinky tips
+        distance_thumb_pinky = ((pinky_tip.x - thumb_tip.x) ** 2 + (pinky_tip.y - thumb_tip.y) ** 2) ** 0.5
+        print("Distance between thumb and pinky:", distance_thumb_pinky)  # Debug: log distance between thumb and pinky
+
+        # Return True if the distance is below a threshold
+        return distance_thumb_pinky < 0.05
+
+    def detect_minimize_gesture(self, hand):
+        thumb_tip = hand.landmark[4]
+        ring_tip = hand.landmark[16]
+
+        # Calculate the distance between thumb and ring tips
+        distance_thumb_ring = ((ring_tip.x - thumb_tip.x) ** 2 + (ring_tip.y - thumb_tip.y) ** 2) ** 0.5
+        print("Distance between thumb and ring:", distance_thumb_ring)  # Debug: log distance between thumb and ring
+
+        # Return True if the distance is below a threshold
+        return distance_thumb_ring < 0.05
+
+    def detect_full_screen_gesture(self, hand):
+        thumb_tip = hand.landmark[4]
+        middle_tip = hand.landmark[12]
+
+        # Calculate the distance between thumb and middle tips
+        distance_thumb_middle = ((middle_tip.x - thumb_tip.x) ** 2 + (middle_tip.y - thumb_tip.y) ** 2) ** 0.5
+        print("Distance between thumb and middle:", distance_thumb_middle)  # Debug: log distance between thumb and middle
+
+        # Return True if the distance is below a threshold
+        return distance_thumb_middle < 0.05
