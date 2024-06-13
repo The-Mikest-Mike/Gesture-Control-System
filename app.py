@@ -14,7 +14,7 @@ main_view = MainView() # Main view instance from  view.py
 
 # Open the webcam
 webcam = cv2.VideoCapture(0)
-
+            
 # Main loop to capture and process video frames
 while True:
     _, image = webcam.read()  # Read a frame from the webcam
@@ -22,7 +22,7 @@ while True:
     print("Processing new frame...")  # Debug: log
     gesture_controller.process_gestures(image)  # Process gestures using the controller
     main_view.display(image) # Display the image with hand gesture information
-
+    
     key = cv2.waitKey(10)  # Wait for a key press for 10 milliseconds
     if key == 27:  # Check if the pressed key is the 'Escape' key (27)
         print("'Escape' key pressed:", key)  # Debug: log when 'escape' key is pressed

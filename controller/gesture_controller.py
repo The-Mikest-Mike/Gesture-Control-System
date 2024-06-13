@@ -4,7 +4,7 @@
 # Components: GestureController
 
 import mediapipe as mp
-from utils.gesture_checks import additional_landmark_checks
+from utils.gesture_checks import additional_landmark_checks, pips_above_mcps
 
 class GestureController:
     def __init__(self, hand_detector, window_manager):
@@ -15,13 +15,17 @@ class GestureController:
 
     def process_gestures(self, image):
         print("Processing gestures...")  # Debug: log process_gestures fuction being called
-        hands = self.hand_detector.detect_hands(image) # Detect hands in the provided image
+        hands = self.hand_detector.detect_hands(image) # Detect hands in the provided image        
+
         if hands:
             for hand in hands:
                 self.drawing_utils.draw_landmarks(image, hand)  # Draw landmarks on detected hands 'image' by using the 'drawing_utils' object
-
+                
+                if pips_above_mcps(hand): 
+                    print ("PIP check passed for all fingers")
+               
                 if additional_landmark_checks(hand): # Check if thumb is positioned below all other fingertips
-                    print("Thumb is below all other fingertips. Performing associated action...") # Debug: log valid condition
+                    print("Thumb is below all other fingertips. Valid Hand Position") # Debug: log whether thumb below other fingers
 
                     # Collect landmarks from the hand
                     thumb_tip = hand.landmark[4]  # Thumb tip landmark
@@ -76,12 +80,9 @@ class GestureController:
                         print("Full Screen gesture detected. Entering Full Screen Window...") # Debug: log enter full screen gesture
                         self.window_manager.full_screen_frontmost_window()
                         break
-
+                
                     # When no gesture detected
                     else:
                         print("No valid gesture detected") # Debug: log no valid gesture after above threshold conditions
-
                 else:
-                    print("Thumb is not below all other fingertips. Ignoring gestures") # # Debug: log no valid gesture after above threshold conditions
-
-
+                    print("Thumb is not below all other fingertips. Ignoring gestures") # Debug: log no valid gesture after above threshold conditions
