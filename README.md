@@ -60,8 +60,8 @@ Uses hand gesture recognition to control various window management actions on a 
 │    └── window_manager.py                              # Defines window manager data models
 │
 └── view/                                               # View folder                                           
-     │── __init__.py                                    # Recognize the directory as a package
-     └── main_view.py                                   # Handles displaying video feed with landmarks
+     │── __init__.py                                     # Recognize the directory as a package
+     └── main_view.py                                    # Handles displaying video feed with landmarks
 ```
 
 ## License
