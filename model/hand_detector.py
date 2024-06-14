@@ -28,6 +28,6 @@ class HandDetector:
                     confidence_score = output.multi_handedness[0].classification[0].score
                     # Validates if confidence score meets or exceeds the minimum detection confidence threshold
                     if confidence_score >= self.min_detection_confidence:
-                        print("Conficence score reached") # Debug: log min_detection_conficence threshold has been reached
+                        print('Conficence score reached', output.multi_handedness) # Debug: log min_detection_conficence threshold has been reached and wether hand is left or right
                         return hand_landmark  # Return the first detected hand with sufficient confidence
         return None  # Return None if no hands are detected with sufficient confidence
