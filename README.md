@@ -1,9 +1,9 @@
 ## Usage
 
 1. Ensure you have compatible Python and PIP versions to setup Mediapipe.<br>
-   a) Python version 3.8 - 3.11. You can download python 3.11.0 from official website: [Python Downloads](https://www.python.org/downloads/release/python-3110/)
+   1.1) Python version 3.8 - 3.11. You can download python 3.11.0 from official website: [Python Downloads](https://www.python.org/downloads/release/python-3110/)
 
-   b) PIP version: 20.3+, upgrade it if needed:
+   1.2) PIP version: 20.3+, upgrade it if needed:
 ```bash
 python3 -m pip install --upgrade pip
 ```
@@ -13,9 +13,11 @@ git clone <repo-url>
 cd <repo-directory>
 pip3 install -r requirements.txt
 ```
-3. Install mediapipe:
+3. Install mediapipe and necessary tools:
 ```bash
 python3 -m pip install mediapipe
+xcode-select --install  # Installs Xcode command line tools
+brew install gcc  # Installs GCC compiler
 ```
 4. Run the application:
 ```bash
@@ -28,6 +30,7 @@ Uses hand gesture recognition to control various window management actions on a 
 - Close Window.
 - Minimize window.
 - Enter Full Screen.
+- Drag and Drop window.
 
 
 ## Key Benefits
