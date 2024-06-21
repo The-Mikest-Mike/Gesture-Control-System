@@ -2,8 +2,8 @@
 # sends user commands to the controller to reflect actions based on their gestures
 # Components: Methods for displaying video feed, drawing landmarks and additional visual feedback
 
-import cv2
 from utils.gesture_checks import pips_above_mcps, additional_landmark_checks, hand_angle_validation
+import cv2
 
 class MainView:
     def __init__(self, hand_detector, window_manager, gesture_controller):
@@ -49,7 +49,7 @@ class MainView:
             image (numpy.ndarray): Frame image to draw feedback on (BGR format)
             hand_landmarks (mediapipe Hands.Hand): Detected hand landmarks
         '''
-        # Visual text feedback when position is valid or invalid.  (Coordinates, style, size, Green text, thickness)
+        # Write visual text feedback whether hand position is valid. (Coordinates, style, size, Green text, thickness)
         if pips_above_mcps(hand_landmarks) and additional_landmark_checks(hand_landmarks) and hand_angle_validation(hand_landmarks):
             cv2.putText(image, "Valid Hand Position", (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
         else:
