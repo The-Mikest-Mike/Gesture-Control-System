@@ -1,3 +1,19 @@
+## Features (macOS)
+Uses hand gesture recognition to control various window management actions on a Mac:
+- Close Window.
+- Minimize window.
+- Enter Full Screen.
+- Drag and Drop window.
+
+
+## Key Benefits
+- Fatigue reduction associated with prolonged mouse or touchpad usage.
+- Potentially prevents musculoskeletal issues.
+- Increased productivity, saving about 5 days per year.
+- Worldwide impact on ergonomic computer interaction.
+- Potential for a groundbreaking development and adoption.
+
+
 ## How to Use
 
 1. Ensure you have compatible Python and PIP versions to setup Mediapipe.<br>
@@ -25,20 +41,6 @@ python3 app.py
 ```
 
 
-## Features (macOS)
-Uses hand gesture recognition to control various window management actions on a Mac:
-- Close Window.
-- Minimize window.
-- Enter Full Screen.
-- Drag and Drop window.
-
-
-## Key Benefits
-- Fatigue reduction associated with prolonged mouse or touchpad usage.
-- Potentially prevents musculoskeletal issues.
-- Increased productivity, saving about 5 days per year.
-- Worldwide impact on ergonomic computer interaction.
-- Potential for a groundbreaking development and adoption.
 
 
  ## Project Directory Structure
