@@ -1,4 +1,4 @@
-## Usage
+## How to Use
 
 1. Ensure you have compatible Python and PIP versions to setup Mediapipe.<br>
    1.1) Python version 3.8 - 3.11. You can download python 3.11.0 from official website: [Python Downloads](https://www.python.org/downloads/release/python-3110/)
