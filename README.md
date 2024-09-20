@@ -1,9 +1,9 @@
 ## Features (macOS)
-Uses hand gesture recognition to control various window management actions on a Mac:
-- Close Window.
-- Minimize window.
-- Enter Full Screen.
-- Drag and Drop window.
+Uses hand gesture recognition to control various window management actions on a Mac:<br>
+✨ Close Window.<br>
+✨ Minimize window.<br>
+✨ Enter Full Screen.<br>
+✨ Drag and Drop window.<br>
 
 
 ## Key Benefits
