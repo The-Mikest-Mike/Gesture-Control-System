@@ -25,7 +25,7 @@ python3 -m pip install --upgrade pip
 ```
 2. Clone repository, move to the directory and install requirements.txt file:
 ```bash
-git clone <repo-url>
+git clone https://github.com/The-Mikest-Mike/Mac-Control-Gestures.git
 ```
  ```bash
 cd <repo-directory>
