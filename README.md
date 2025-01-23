@@ -26,13 +26,21 @@ python3 -m pip install --upgrade pip
 2. Clone repository, move to the directory and install requirements.txt file:
 ```bash
 git clone <repo-url>
+```
+ ```bash
 cd <repo-directory>
+```
+ ```bash
 pip3 install -r requirements.txt
 ```
 3. Install mediapipe and necessary tools:
 ```bash
 python3 -m pip install mediapipe
+```
+```bash
 xcode-select --install  # Installs Xcode command line tools
+```
+```bash
 brew install gcc  # Installs GCC compiler
 ```
 4. Run the application:
