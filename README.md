@@ -23,12 +23,12 @@ Uses hand gesture recognition to control various window management actions on a 
 ```bash
 python3 -m pip install --upgrade pip
 ```
-2. Clone repository, move to the directory and install requirements.txt file:
+2. Move to the desired directory, clone repository, and install requirements.txt file:
+```bash
+cd <repo-directory>
+```
 ```bash
 git clone https://github.com/The-Mikest-Mike/Mac-Control-Gestures.git
-```
- ```bash
-cd <repo-directory>
 ```
  ```bash
 pip3 install -r requirements.txt
