@@ -29,6 +29,5 @@ jobs:
           git add .
           git commit -m "Auto-sync from The-Mikest-Mike - $GITHUB_REF"
           git push https://${{ secrets.TMM_PAT }}@github.com/TMMSoftware/tmmsoftware.github.io.git main
-
         env:
           TMM_PAT: ${{ secrets.TMM_PAT }}
