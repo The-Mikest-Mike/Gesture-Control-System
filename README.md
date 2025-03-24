@@ -3,7 +3,7 @@ Uses hand gesture recognition to control various window management actions on a 
 ✨ Close Window.<br>
 ✨ Minimize window.<br>
 ✨ Enter Full Screen.<br>
-✨ Drag and Drop window.<br> (Beta)
+✨ Drag and Drop window. (Beta) <br>
 
 
 ## Key Benefits
