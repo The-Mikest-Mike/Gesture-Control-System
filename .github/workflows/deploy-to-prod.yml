@@ -1,4 +1,4 @@
-name: Deploy to Production
+name: Deploy to TMMSoftware/Gesture-Control-System
 
 on:
   push:
@@ -6,17 +6,25 @@ on:
       - release/*
 
 jobs:
-  validate:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Placeholder Test
-        run: echo "No tests configured yet. Skipping for now."
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Unit Tests
+        run: npm test
 
   deploy:
-    needs: validate
+    needs: test
     if: success()
     runs-on: ubuntu-latest
     steps:
@@ -31,10 +39,10 @@ jobs:
       - name: Push to TMMSoftware/Gesture-Control-System
         run: |
           git clone https://github.com/TMMSoftware/Gesture-Control-System.git prod_repo
-          rsync -av --exclude='.git' ./ prod_repo/
+          rsync -av --exclude='.git' --exclude='.github/workflows' ./ prod_repo/
           cd prod_repo
           git add .
-          git commit -m "Auto-deploy from release branch: $GITHUB_REF"
+          git commit -m "Auto-deploy from release branch: $GITHUB_REF" || echo "Nothing to commit"
           git push https://${{ secrets.TMM_PAT }}@github.com/TMMSoftware/Gesture-Control-System.git main
         env:
           TMM_PAT: ${{ secrets.TMM_PAT }}
