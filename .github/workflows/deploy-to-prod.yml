@@ -38,3 +38,11 @@ jobs:
           git push https://${{ secrets.TMM_PAT }}@github.com/TMMSoftware/Gesture-Control-System.git main
         env:
           TMM_PAT: ${{ secrets.TMM_PAT }}
+
+      - name: Tag the successful release
+        if: success()
+        run: |
+          TAG_NAME=$(echo $GITHUB_REF | sed 's/refs\/heads\/release\///')
+          git tag v$TAG_NAME
+          git push origin v$TAG_NAME
+
