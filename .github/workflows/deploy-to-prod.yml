@@ -43,6 +43,9 @@ jobs:
         if: success()
         run: |
           TAG_NAME=$(echo $GITHUB_REF | sed 's/refs\/heads\/release\///')
+          git fetch --unshallow || true
+          git remote set-url origin https://x-access-token:${{ secrets.GCS_DEV_PAT }}@github.com/The-Mikest-Mike/Gesture-Control-System.git
           git tag v$TAG_NAME
           git push origin v$TAG_NAME
+
 
